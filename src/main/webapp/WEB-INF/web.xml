@@ -39,4 +39,14 @@
     <servlet-name>StudentServlet</servlet-name>
     <url-pattern>/StudentServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>StudentByFiliere</display-name>
+    <servlet-name>StudentByFiliere</servlet-name>
+    <servlet-class>web.StudentByFiliere</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>StudentByFiliere</servlet-name>
+    <url-pattern>/StudentByFiliere</url-pattern>
+  </servlet-mapping>
 </web-app>

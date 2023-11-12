@@ -47,29 +47,35 @@ public class RoleServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		 String action=request.getParameter("action");
-			String name = request.getParameter("name");
-			int id = 0;
+		
+		    String name = request.getParameter("name");
+		    int id = 0;
 
-			if (request.getParameter("id") != null && !request.getParameter("id").isEmpty()) {
-			    id = Integer.parseInt(request.getParameter("id"));
-			}
-
-		switch(action) {
-			case "add":
-			 daoLocal.create(new Role(name));
-			 break;
-			case "update":
-			Role r=	daoLocal.findById(id);
-			r.setName(name);
-			daoLocal.update(r);
-			break;
-			case "del":
-				daoLocal.delete(daoLocal.findById(id));
-				break;
-		}
-		response.sendRedirect(request.getContextPath() + "/RoleServlet");
-		// doGet(request, response);
+		    if (request.getParameter("id") != null && !request.getParameter("id").isEmpty()) {
+		        id = Integer.parseInt(request.getParameter("id"));
+		    }
+		    if (request.getParameter("action") != null && !request.getParameter("action").isEmpty()) {
+			    String action = request.getParameter("action");
+		    
+		    switch (action) {
+		        case "add":
+		            daoLocal.create(new Role(name));
+		            break;
+		        case "update":
+		            Role r = daoLocal.findById(id);
+		            r.setName(name);
+		            daoLocal.update(r);
+		            break;
+		        case "del":
+		            daoLocal.delete(daoLocal.findById(id));
+		            break;
+		        default:
+		 
+		            break;
+		    }
+		    }
+		// response.sendRedirect(request.getContextPath() + "/RoleServlet");
+		doGet(request, response);
 
 	}
 
